@@ -1,0 +1,117 @@
+#1
+
+def inicializa_matriz():
+    for i in range(tam):
+        linha = []
+        for j in range(tam):
+            linha.append(0)
+        grafo.append(linha)
+
+def mostra_matriz():
+    for i in range(tam):
+        for j in range(tam):
+            print(grafo[i][j], end=' ')
+        print('')
+
+def adiciona_arestas():
+    for i in range(tam):
+        for j in range(tam):
+            if i==j:
+                grafo[i][j] = 0
+            else:
+                grafo[i][j] = 1
+            if i==j-1 and j==i+1:
+                if j%2!=0:
+                    grafo[i][j] = 0
+            if i== j+1 and j == i-1:
+                if j%2==0:
+                    grafo[i][j] = 0
+
+
+def inicializar_lista():
+    for i in range(tam):
+        grafoL.append([])
+
+def mostrar_grafo_detalhado():
+    for i in range(tam):
+        print(i, ':', end=' ')
+        for j in grafoL[i]:
+            print(j, end=' ')
+        print('')
+
+def adicionar_aresta():
+    for i in range(tam):
+        for j in range(tam):
+            if grafo[i][j]!=0:
+                grafoL[i].append(j)
+
+
+
+
+grafoL = []
+grafo = []
+tam = 6
+inicializa_matriz()
+adiciona_arestas()
+mostra_matriz()
+inicializar_lista()
+adicionar_aresta()
+print('')
+mostrar_grafo_detalhado()
+
+#2
+
+def inicializa_matriz():
+    for i in range(tam):
+        linha = []
+        for j in range(tam):
+            linha.append(0)
+        M.append(linha)
+
+
+def mostra_matriz():
+    for i in range(tam):
+        for j in range(tam):
+            print(M[i][j], end=' ')
+        print('')
+
+def adiciona_arestas():
+    for i in range(tam):
+        for j in range(tam):
+            if i!=j:
+                M[i][j] = 1
+
+def inicializar_lista():
+    for i in range(tam):
+        grafoL.append([])
+
+def converteMatrizParaLista():
+    for i in range(tam):
+        for j in range(tam):
+            if M[i][j]!=0:
+                grafoL[i].append(j)
+def converterListaparaMatrz():
+    for i in range(tam):
+        for j in grafoL[i]:
+            M[i][j]=1
+
+def mostrar_grafo_detalhado():
+    for i in range(tam):
+        print(i, ':', end=' ')
+        for j in grafoL[i]:
+            print(j, end=' ')
+        print('')
+
+M = []
+tam = 4
+grafoL = []
+inicializa_matriz()
+inicializar_lista()
+adiciona_arestas()
+converteMatrizParaLista()
+mostra_matriz()
+print('')
+mostrar_grafo_detalhado()
+converterListaparaMatrz()
+print('')
+mostra_matriz()
